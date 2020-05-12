@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head/>
+<h:body>
+    <h2>Exercises:</h2>
+    <ol>
+        <ui:repeat value="#{exercises.allExercises}" var="ex">
+            <li><h:link value="#{ex.name}"/></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        Name:
+        <h:inputText value="#{exercises.exerciseToCreate.name}" />
+        <b/>
+        TimesPerApproach:
+        <h:inputText value="#{exercises.exerciseToCreate.timesPerApproach}" />
+        <b/>
+        Number of approaches:
+        <h:inputText value="#{exercises.exerciseToCreate.approaches}" />
+        <b/>
+        Youtube url:
+        <h:inputText value="#{exercises.exerciseToCreate.url}" />
+        <b/>
+        <h:commandButton value="Add new exercise" action="#{exercises.createExc}" />
+    </h:form>
+
+    <h2>People:</h2>
+    <ol>
+        <ui:repeat value="#{people.allPeople}" var="ppl">
+            <li><h:link value="#{ppl.name}"/></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        Name:
+        <h:inputText value="#{people.personToCreate.name}" />
+        <b/>
+        Surname:
+        <h:inputText value="#{people.personToCreate.surname}" />
+        <b/>
+        Number of approaches:
+        <h:inputText value="#{people.personToCreate.birthdate}" />
+        <b/>
+        <h:commandButton value="Add new person" action="#{people.createPpl}" />
+    </h:form>
+</h:body>
+</html>
