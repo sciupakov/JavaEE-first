@@ -46,5 +46,26 @@
         <b/>
         <h:commandButton value="Add new person" action="#{people.createPpl}" />
     </h:form>
+
+
+    <h2>Programmes:</h2>
+    <ol>
+        <ui:repeat value="#{trainingPrograms.allPrograms}" var="prg">
+            <li><h:link value="#{prg.id}"/></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        Assign exercise
+        <h:commandButton value="Assign exercise" action="#{trainingPrograms.createPpl}" />
+
+        <b/>
+        Surname:
+        <h:inputText value="#{people.personToCreate.surname}" />
+        <b/>
+        Birth date:
+        <h:inputText value="#{people.personToCreate.birthdate}" />
+        <b/>
+        <h:commandButton value="Add new program" action="#{people.createPpl}" />
+    </h:form>
 </h:body>
 </html>

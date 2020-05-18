@@ -2,7 +2,6 @@ package vu.lt.usecases;
 
 import lombok.Getter;
 import lombok.Setter;
-import vu.lt.entities.Exercise;
 import vu.lt.entities.TrainingProgram;
 import vu.lt.persistence.ExercisesDAO;
 import vu.lt.persistence.TrainingProgramDAO;
@@ -16,8 +15,12 @@ import java.util.List;
 @Model
 public class TrainingPrograms {
 
+
     @Inject
     private TrainingProgramDAO trainingProgramDAO;
+
+    @Inject
+    private ExercisesDAO exercisesDAO;
 
     @Getter
     @Setter
@@ -28,17 +31,19 @@ public class TrainingPrograms {
 
     @PostConstruct
     public void init(){
-        loadAllExcs();
+        loadAllPrograms();
     }
 
-    private void loadAllExcs(){
+    private void loadAllPrograms(){
         this.allPrograms = trainingProgramDAO.loadAll();
     }
 
     @Transactional
-    public String createExc(){
+    public String createPrg(){
         this.trainingProgramDAO.persist(programToCreate);
         return "index?faces-redirect=true";
     }
+
+
 
 }
