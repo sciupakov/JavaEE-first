@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h2>Group of #{peopleForCoach.coach.name}:</h2>
+    <ol>
+        <ui:repeat value="#{peopleForCoach.coach.persons}" var="prsn">
+            <li>
+                <h:link value="#{prsn.name}" outcome="programs?personId=#{prsn.id}&amp;coachId=#{peopleForCoach.coach.id}"/>
+            </li>
+        </ui:repeat>
+    </ol>
+    <h2>Add person to the group</h2>
+    <h:form>
+        Name:
+        <h:inputText value="#{peopleForCoach.personToCreate.name}" />
+        <br/>
+        Surname:
+        <h:inputText value="#{peopleForCoach.personToCreate.surname}" />
+        <br/>
+        Birth date:
+        <h:inputText value="#{peopleForCoach.personToCreate.birthdate}" />
+        <br/>
+        <h:commandButton value="Add new person" action="#{peopleForCoach.createPerson}" >
+            <f:param name="coachId" value="#{peopleForCoach.coach.id}" />
+        </h:commandButton>
+    </h:form>
+
+</h:body>
+</html>

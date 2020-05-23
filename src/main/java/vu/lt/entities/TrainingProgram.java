@@ -2,9 +2,11 @@ package vu.lt.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import vu.lt.entities.keys.ProgramKey;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -16,17 +18,43 @@ import java.util.List;
 @Setter
 public class TrainingProgram {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @EmbeddedId
+    private ProgramKey id;
+
+    @ManyToOne
+    @MapsId("PERSON_ID")
+    @JoinColumn(name = "PERSON_ID")
+    private Person person;
+
+    @ManyToOne
+    @MapsId("COACH_ID")
+    @JoinColumn(name = "COACH_ID")
+    private Coach coach;
+
+    /*@OneToMany(mappedBy = "program", fetch = FetchType.EAGER)
+    private List<Exercise> programExercises = new ArrayList();
 
     @OneToMany(mappedBy = "program")
-    private List<Exercise> programExercises;
+    private List<Person> personList = new ArrayList<>();*/
 
-    @OneToMany(mappedBy = "program")
-    private List<Person> personList = new ArrayList<>();
+    private String name;
+
+    public TrainingProgram(){
+
+    }
 
     @Version
     @Column(name = "OPT_LOCK_VERSION")
     private Integer version;
+
+    @ManyToMany(mappedBy = "programs")
+    private Collection<Exercise> exercises;
+
+    public Collection<Exercise> getExercises() {
+        return exercises;
+    }
+
+    public void setExercises(Collection<Exercise> exercises) {
+        this.exercises = exercises;
+    }
 }

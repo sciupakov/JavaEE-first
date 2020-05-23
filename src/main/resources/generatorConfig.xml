@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <context id="Exercises" targetRuntime="MyBatis3Simple">
+    <context id="ExerciseDB" targetRuntime="MyBatis3Simple">
         <jdbcConnection driverClass="org.h2.Driver"
                         connectionURL="jdbc:h2:~/h2database/ExerciseDB;AUTO_SERVER=TRUE"
                         userId="sa"
@@ -17,13 +17,18 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="mybatis.dao" targetProject="MAVEN" />
 
 
-        <table schema="public" tableName="team">
+        <table schema="public" tableName="coach">
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
             <ignoreColumn column="opt_lock_version" />
         </table>
-        <table schema="public" tableName="player">
+        <table schema="public" tableName="person">
             <generatedKey column="id" identity="true" sqlStatement="JDBC" />
             <ignoreColumn column="opt_lock_version" />
         </table>
+        <table schema="public" tableName="trainingprogram">
+        <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+        <ignoreColumn column="opt_lock_version" />
+    </table>
+
     </context>
 </generatorConfiguration>

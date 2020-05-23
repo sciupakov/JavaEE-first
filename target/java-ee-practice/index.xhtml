@@ -6,7 +6,7 @@
 >
 <h:head/>
 <h:body>
-    <h2>Exercises:</h2>
+    <!--<h2>Exercises:</h2>
     <ol>
         <ui:repeat value="#{exercises.allExercises}" var="ex">
             <li><h:link value="#{ex.name}"/></li>
@@ -15,57 +15,58 @@
     <h:form>
         Name:
         <h:inputText value="#{exercises.exerciseToCreate.name}" />
-        <b/>
+        <br/>
         TimesPerApproach:
         <h:inputText value="#{exercises.exerciseToCreate.timesPerApproach}" />
-        <b/>
+        <br/>
         Number of approaches:
         <h:inputText value="#{exercises.exerciseToCreate.approaches}" />
-        <b/>
+        <br/>
         Youtube url:
         <h:inputText value="#{exercises.exerciseToCreate.url}" />
-        <b/>
+        <br/>
         <h:commandButton value="Add new exercise" action="#{exercises.createExc}" />
+    </h:form>-->
+
+    <h2>Coaches:</h2>
+    <ol>
+        <ui:repeat value="#{coaches.allCoaches}" var="coach">
+            <li><h:link value="#{coach.name}" outcome="people?coachId=#{coach.id}" /></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{coaches.coachToCreate.name}" required="true" />
+        <h:commandButton value="Add new coach" action="#{coaches.createCoach}" />
     </h:form>
 
-    <h2>People:</h2>
+    <!--<h2>People:</h2>
     <ol>
         <ui:repeat value="#{people.allPeople}" var="ppl">
-            <li><h:link value="#{ppl.name}"/></li>
+            <li><h:link value="#{ppl.name} + #{ppl.surname}" outcome="coaches?classId=#{ppl.id}"/></li>
         </ui:repeat>
     </ol>
     <h:form>
         Name:
         <h:inputText value="#{people.personToCreate.name}" />
-        <b/>
+        <br/>
         Surname:
         <h:inputText value="#{people.personToCreate.surname}" />
-        <b/>
+        <br/>
         Number of approaches:
         <h:inputText value="#{people.personToCreate.birthdate}" />
-        <b/>
+        <br/>
         <h:commandButton value="Add new person" action="#{people.createPpl}" />
-    </h:form>
+    </h:form>-->
 
 
-    <h2>Programmes:</h2>
+    <!--<h2>Programmes:</h2>
     <ol>
         <ui:repeat value="#{trainingPrograms.allPrograms}" var="prg">
-            <li><h:link value="#{prg.id}"/></li>
+            <li><h:link value="#{prg.id}" outcome="programs?programId=#{prg.id}"/></li>
         </ui:repeat>
     </ol>
     <h:form>
-        Assign exercise
-        <h:commandButton value="Assign exercise" action="#{trainingPrograms.createPpl}" />
-
-        <b/>
-        Surname:
-        <h:inputText value="#{people.personToCreate.surname}" />
-        <b/>
-        Birth date:
-        <h:inputText value="#{people.personToCreate.birthdate}" />
-        <b/>
-        <h:commandButton value="Add new program" action="#{people.createPpl}" />
-    </h:form>
+        <h:commandButton value="Create new program" action="#{trainingPrograms.createPrg()}" />
+    </h:form>-->
 </h:body>
 </html>

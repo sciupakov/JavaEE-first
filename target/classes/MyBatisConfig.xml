@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="mybatis.model.Team" alias="Team"/>
-        <typeAlias type="mybatis.model.Player" alias="Player"/>
+        <typeAlias type="mybatis.model.coach" alias="Coach"/>
+        <typeAlias type="mybatis.model.person" alias="Person"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -16,7 +16,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatis/xml/TeamMapper.xml"/>
-        <mapper resource="mybatis/xml/PlayerMapper.xml"/>
+        <mapper resource="mybatis/xml/CoachMapper.xml"/>
+        <mapper resource="mybatis/xml/PersonMapper.xml"/>
     </mappers>
 </configuration>

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
@@ -13,7 +14,7 @@ import java.util.Objects;
 @Table(name = "Person")
 @Getter
 @Setter
-public class Person {
+public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +30,10 @@ public class Person {
     private String birthdate;
 
     @ManyToOne
-    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    @JoinColumn(name = "COACH_ID")
+    private Coach coach;
+
+    @ManyToOne
     private TrainingProgram program;
 
     @Override

@@ -1,5 +1,5 @@
 package vu.lt.persistence;
-
+/*
 import vu.lt.entities.Exercise;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -21,7 +21,12 @@ public class ExercisesDAO {
         return em.find(Exercise.class, id);
     }
 
+    public List<Exercise> findAll(Integer id) {
+        return em.createNamedQuery("Exercise.findByProgram", Exercise.class).setParameter("program_id", id).getResultList();
+    }
+
     public List<Exercise> loadAll() {
         return em.createNamedQuery("Exercise.findAll", Exercise.class).getResultList();
     }
 }
+*/

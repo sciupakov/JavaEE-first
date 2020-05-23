@@ -1,6 +1,7 @@
 package vu.lt.persistence;
 
 import vu.lt.entities.TrainingProgram;
+import vu.lt.entities.keys.ProgramKey;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -17,11 +18,15 @@ public class TrainingProgramDAO {
         this.em.persist(pr);
     }
 
-    public TrainingProgram findOne(Integer id) {
+    public TrainingProgram findTrainingProgram(ProgramKey id) {
         return em.find(TrainingProgram.class, id);
     }
 
-    public List<TrainingProgram> loadAll() {
-        return em.createNamedQuery("TrainingProgram.findAll", TrainingProgram.class).getResultList();
+    public void saveOrUpdate(TrainingProgram coPilot){
+        this.em.merge(coPilot);
     }
+
+    /*public List<TrainingProgram> loadAll() {
+        return em.createNamedQuery("TrainingProgram.findAll", TrainingProgram.class).getResultList();
+    }*/
 }

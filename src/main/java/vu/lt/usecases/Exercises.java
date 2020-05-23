@@ -1,5 +1,5 @@
 package vu.lt.usecases;
-
+/*
 import lombok.Getter;
 import lombok.Setter;
 import vu.lt.entities.Exercise;
@@ -27,6 +27,7 @@ public class Exercises {
     @PostConstruct
     public void init(){
         loadAllExcs();
+
     }
 
     private void loadAllExcs(){
@@ -38,4 +39,4 @@ public class Exercises {
         this.exercisesDAO.persist(exerciseToCreate);
         return "index?faces-redirect=true";
     }
-}
+}*/
